@@ -1,1 +1,16 @@
+#starts notepad
 start notepad
+
+#delete all traces
+
+#temp folder
+rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
+
+#run box history
+reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVErsion\Explorer\RunRMU /va /f
+
+#powershell history
+Remove-Item (Get-PSreadlineOption).HistorySavePath
+
+#recycle bin
+Clear-RecycleBin -Force -ErrorAction SilentlyContinue
