@@ -1,10 +1,9 @@
 #Grabs everything from the desktop and compresses it into a .zip file
-#has to be changed from static to dynamic username!!!!!
 
 $compress = @{
-  Path = "C:\Users\patri\Desktop\"
+  Path = $env:USERPROFILE + "\Desktop\SysinternalsSuite"
   CompressionLevel = "Fastest"
-  DestinationPath = "C:\Users\patri\Desktop\Loot.zip"
+  DestinationPath = $env:USERPROFILE + "\Desktop\Loot.zip"
 }
 Compress-Archive @compress
 
