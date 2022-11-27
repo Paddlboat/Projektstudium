@@ -1,4 +1,4 @@
-#Grabs everything from the desktop and compresses it into a .zip file
+#Grabs everything from the selected directory and compresses it into a .zip file
 
 $compress = @{
   Path = $env:USERPROFILE + "\Desktop\SysinternalsSuite"
