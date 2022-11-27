@@ -30,3 +30,6 @@ Remove-Item (Get-PSreadlineOption).HistorySavePath
 
 #recycle bin
 Clear-RecycleBin -Force -ErrorAction SilentlyContinue
+
+#exit powershell
+exit
