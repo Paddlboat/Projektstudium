@@ -19,7 +19,7 @@ Foreach($WLANProfileName in $WLANProfileNames){
 
     #get the output for the specified profile name and trim the output to receive the password if there is no password it will inform the user
     try{
-        $WLANProfilePassword = (((netsh.exe wlan show profiles name="$WLANProfileName" key=clear | select-string -Pattern "Key Content") -split ":")[1]).Trim()
+        $WLANProfilePassword = (((netsh.exe wlan show profiles name="$WLANProfileName" key=clear | select-string -Pattern "keyMaterial") -split ":")[1]).Trim()
     }Catch{
         $WLANProfilePassword = "The password is not stored in this profile"
     }
